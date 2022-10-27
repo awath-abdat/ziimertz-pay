@@ -21,8 +21,7 @@ workflows:
           source: true
       cancel_previous_builds: false
     scripts:
-      - name: Build for iOS
-      script: flutter build ios 
+      - script: flutter build ios 
     artifacts:
       - build/**/outputs/bundle/**/*.aab
     publishing:
