@@ -1,32 +1,9 @@
 workflows:
   my-workflow:
     name: Ziimertz Pay
-    labels:
-      - QA
-      - ${Ziimertz}
-    instance_type: mac_mini_m1
-    max_build_duration: 60
+    instance_type: mac_pro
     environment:
       flutter: stable
       xcode: latest
-    cache:
-      cache_paths:
-        - ~/.pub-cache
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: '*'
-          include: true
-          source: true
-      cancel_previous_builds: false
     scripts:
       - script: flutter build ios 
-    artifacts:
-      - build/**/outputs/bundle/**/*.aab
-    publishing:
-      email:
-        recipients:
-          - awath.abdat7@gmail.com
-      scripts:
-        - echo 'Scripts done'
